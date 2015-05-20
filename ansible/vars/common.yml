@@ -1,0 +1,6 @@
+---
+    #Shared folder for vagrant files
+    doc_root: /vagrant
+    
+    #Folder path on the host where all the source are saved and edited.
+    host_doc_root: D:/development/dafabet

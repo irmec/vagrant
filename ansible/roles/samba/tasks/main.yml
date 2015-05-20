@@ -1,0 +1,25 @@
+---
+# Install and configure samba server (requires ports 137, 138, 139, 445 open).
+- name: Ensure Samba-related packages are installed.
+  yum: pkg={{ item }} state=installed
+  with_items:
+  - samba
+  - samba-client
+  - samba-common
+  - cifs-utils
+
+- name: Ensure Samba is running and set to start on boot.
+  service: name=smb state=started enabled=yes
+
+- name: ensure smbpassword is set
+  raw:  (echo vagrant; echo vagrant) | /usr/bin/smbpasswd -s -a root
+
+- name: Update smb.conf to be publicly readable and writable
+  copy: src=/vagrant/ansible/inventories/smb.conf dest=/etc/samba/smb.conf mode=0644
+  notify: restart smb
+
+- name: Update file permission on /var/www/html
+  file: path=/var/www/html mode=0777
+
+- name: Update ACL on /var/www/html
+  shell: setfacl -R -m d:u::rwx,u::rwx,d:g::rwx,g::rwx,d:o::rwx,o::rwx,d:m::rwx,m::rwx,u:apache:rwx /var/www/html

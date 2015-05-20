@@ -1,0 +1,3 @@
+---
+    #Drush settings
+    drush_install_path: /home/vagrant/drush

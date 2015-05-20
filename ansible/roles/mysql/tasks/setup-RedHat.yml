@@ -1,0 +1,7 @@
+---
+- name: Ensure MySQL libs for 5.1 is removed
+  yum: "name=mysql-libs state=absent"
+  
+- name: Ensure MySQL packages are installed.
+  yum: "name={{ item }} state=installed enablerepo={{ mysql_enablerepo }}"
+  with_items: mysql_packages

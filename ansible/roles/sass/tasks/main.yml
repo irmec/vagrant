@@ -1,0 +1,8 @@
+---
+
+- name: packages
+  gem: >
+    name=sass
+    version={{ elao_sass_version }}
+    state=present
+    user_install=no

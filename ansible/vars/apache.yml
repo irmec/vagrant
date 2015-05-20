@@ -1,0 +1,11 @@
+---
+    #Apache settings
+    apache_create_vhosts: true
+    apache_listen_port: 80
+    apache_packages:
+      - mod_security
+
+    #Virtualhosts for your webserver. You can put multiple vhosts and aliases. Note that the documentroot should exist on host_doc_root
+    apache_vhosts:
+      - servername: "dev.irmec.com"
+        documentroot: "git-projects/irmec-website"

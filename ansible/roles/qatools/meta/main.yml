@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Richard Alexander Allen
+  description: Ansible role for installing various PHP code quality tools.
+  license: GPLv2
+  min_ansible_version: 1.2
+
+  categories:
+  - development
+  - web
+
+dependencies:
+  - { role: init }
+  - { role: composer }

@@ -1,0 +1,41 @@
+---
+- name: Install PHPUnit
+  get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit mode=0777 validate_certs=no timeout=60
+
+- name: Install PHP LOC
+  shell: >
+    {{ composer_path }} global require 'phploc/phploc=2.0.6'
+    creates=/usr/local/bin/phploc
+  
+- name: Install PHP Depend
+  shell: >
+    {{ composer_path }} global require 'pdepend/pdepend=2.0.4'
+    creates=/usr/local/bin/pdepend
+
+- name: Install PHPMD
+  shell: >
+    {{ composer_path }} global require 'phpmd/phpmd=2.2.0'
+    creates=/usr/local/bin/phpmd
+
+- name: Install PHP Coder Sniffer
+  shell: >
+    {{ composer_path }} global require 'squizlabs/php_codesniffer=2.2.0'
+    creates=/usr/local/bin/phpcs
+
+- name: Install PHP Copy/Paste Detector (PHPCPD)
+  shell: >
+    {{ composer_path }} global require 'sebastian/phpcpd=2.0.1'
+    creates=/usr/local/bin/phpcpd
+
+- name: Install PHP Dead Code Detector (PHPDCD)
+  shell: >
+    {{ composer_path }} global require 'sebastian/phpdcd=1.0.2'
+    creates=/usr/local/bin/phpdcd
+
+- name: Install PHPDox
+  get_url: url=http://phpdox.de/releases/phpdox.phar dest=/usr/local/bin/phpdox mode=0777 validate_certs=no timeout=60
+
+- name: Install HHVM wrapper
+  shell: >
+    {{ composer_path }} global require 'sebastian/hhvm-wrapper=2.0.3'
+    creates=/usr/local/bin/hhvm-wrapper

@@ -1,0 +1,5 @@
+---
+    #Git settings.
+    git_packages:
+     - git2u
+    git_enablerepo: "ius-archive"

@@ -1,0 +1,82 @@
+---
+apache_enablerepo: ""
+
+apache_listen_port: 80
+apache_listen_port_ssl: 443
+
+apache_create_vhosts: true
+apache_vhosts_filename: "vhosts.conf"
+
+apache_vhosts:
+  # Additional properties: 'serveradmin, serveralias, extra_parameters'.
+  - {servername: "local.dev", documentroot: "/var/www/html"}
+
+apache_vhosts_ssl: []
+  # Additional properties: 'serveradmin, extra_parameters'.
+  # - {
+  #   servername: "local.dev",
+  #   documentroot: "/var/www/html",
+  #   certificate_file: "/path/to/certificate.crt",
+  #   certificate_key_file: "/path/to/certificate.key",
+  #   # Optional.
+  #   certificate_chain_file: "/path/to/certificate_chain.crt"
+  # }
+
+apache_ssl_protocol: "All -SSLv2 -SSLv3"
+apache_ssl_cipher_suite: "AES256+EECDH:AES256+EDH"
+
+#Apache httpd.conf settings
+apache_server_root: "/etc/httpd"
+apache_timeout: 3
+apache_keep_alive_request: 0
+apache_keep_alive_timeout: 2
+
+#Apache prefork.c setting
+apache_prefork_start_servers: 5
+apache_prefork_min_spare_servers: 5
+apache_prefork_max_spare_servers: 60
+apache_prefork_server_limit: 135
+apache_prefork_max_clients: 135
+apache_prefork_max_request_per_child: 160
+
+#Apache worker.c setting
+apache_worker_start_servers: 4
+apache_worker_max_clients: 300
+apache_worker_min_spare_threads: 25
+apache_worker_max_spare_threads: 75
+apache_worker_threads_per_child: 25
+apache_worker_max_request_per_child: 0
+
+apache_mods_enabled:
+  - mods: auth_basic
+  - mods: authn_file
+  - mods: authn_anon
+  - mods: authn_default
+  - mods: authz_host
+  - mods: authz_user
+  - mods: authz_owner
+  - mods: authz_groupfile
+  - mods: authz_default
+  - mods: log_config
+  - mods: logio
+  - mods: ext_filter
+  - mods: mime_magic
+  - mods: expires
+  - mods: deflate
+  - mods: headers
+  - mods: usertrack
+  - mods: setenvif
+  - mods: mime
+  - mods: status
+  - mods: vhost_alias
+  - mods: negotiation
+  - mods: dir
+  - mods: actions
+  - mods: speling
+  - mods: alias
+  - mods: rewrite
+  - mods: cache
+  - mods: suexec
+  - mods: disk_cache
+  - mods: cgi
+  - mods: version

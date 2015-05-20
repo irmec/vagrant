@@ -1,0 +1,5 @@
+---
+- name: Install ruby.
+  yum: name=ruby state=present
+- name: Install rubygems.
+  yum: name=rubygems state=present

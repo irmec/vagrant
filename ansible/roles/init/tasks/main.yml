@@ -1,0 +1,70 @@
+---
+- name: Configure the timezone
+  template: src=timezone.tpl dest=/etc/timezone
+
+- name: More Configure the timezone
+  file: src=/usr/share/zoneinfo/{{timezone}} dest=/etc/localtime state=link force=yes backup=yes
+
+- name: get ius-archive rpm
+  get_url: url=http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-13.ius.centos6.noarch.rpm dest=/home/vagrant
+  tags:
+    - common
+    - ius
+
+- name: install ius-archive repository rpm
+  command: rpm --replacepkgs -Uvh /home/vagrant/ius-release-1.0-13.ius.centos6.noarch.rpm
+
+- name: install mysql-connector-python
+  yum:
+    name: "mysql-connector-python"
+    state: latest
+
+- name: install python27-MySQL-python
+  yum:
+    name: "python27-MySQL-python"
+    state: latest
+
+- name: Remove Git 1.7
+  yum:
+    name: "git"
+    state: absent
+
+- name: Remove SVN 1.6
+  yum:
+    name: subversion
+    state: absent
+
+- name: Install SVN 1.7
+  yum:
+    name: http://opensource.wandisco.com/centos/6/svn-1.7/RPMS/x86_64/subversion-1.7.19-1.x86_64.rpm
+    state: present
+
+- name: Initialize SVN folder first
+  shell: svn --version
+
+- name: Don't store password for SVN client.
+  shell: echo "store-passwords = no" >> /root/.subversion/servers
+
+- name: Install Sendmail
+  yum:
+    name: sendmail
+    state: present
+
+- name: Install Sendmail
+  shell: echo "define(\`SMART_HOST', \`192.168.9.15')dnl" >> /etc/mail/sendmail.mc
+  notify: restart sendmail
+
+- name: Install Telnet client
+  yum:
+    name: telnet
+    state: present
+
+- name: Add composer bin to path INIT
+  shell: echo $PATH
+  environment: 
+    PATH: "/root/.composer/vendor/bin:{{ ansible_env.PATH }}"
+
+- name: Install htop (LOL)
+  yum:
+    name: htop
+    state: present

@@ -1,0 +1,5 @@
+---
+    #System settings
+    sys_packages: []
+    dist: precise
+    timezone: Asia/Manila

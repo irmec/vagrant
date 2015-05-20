@@ -1,0 +1,49 @@
+---
+    #PHP Settings
+    php_enablerepo: "ius-archive"
+    php_enable_php_fpm: false
+    php_memory_limit: "128M"
+    php_max_execution_time: "90"
+    php_upload_max_filesize: "64M"
+    php_use_managed_ini: true
+    php_date_timezone: "Asia/Manila"
+    php_short_open_tag: On
+    php_error_reporting: "E_ALL"
+    php_display_errors: "On"
+    php_post_max_size: "64M"
+    php_packages:
+      - php53u
+      - php53u-cli
+      - php53u-common
+      - php53u-devel
+      - php53u-gd
+      - php53u-mbstring
+      - php53u-soap
+      - php53u-mcrypt
+      - php53u-pdo
+      - php53u-pecl-apc
+      - php53u-xml
+      - php53u-mysql
+      - ImageMagick
+      - php53u-xmlrpc
+
+    # Hardening configurations
+    php_allow_call_time_pass_reference: Off
+    php_expose_php: Off
+    php_html_errors: Off
+    php_upload_tmp_dir: "/tmp"
+    php_mail_add_x_header: Off
+    php_session_save_path: "/var/lib/php/session"
+    php_max_execution_time: "30"
+    php_realpath_cache_size: "64k"
+    php_realpath_cache_ttl: "3600"
+    php_register_globals: Off
+    php_magic_quotes_gpc: Off
+    php_magic_quotes_runtime: Off
+    php_magic_quotes_sybase: Off
+    php_safe_mode: Off
+    php_safe_mode_allowed_env_vars: PHP_
+    php_safe_mode_protected_env_vars: LD_LIBRARY_PATH
+    php_open_basedir: "/var/www/html:/tmp"
+    php_disable_functions: "show_source, system, shell_exec, passthru, exec, proc_open, popen"
+    php_allow_url_fopen: "0"

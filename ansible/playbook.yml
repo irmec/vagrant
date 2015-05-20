@@ -1,0 +1,29 @@
+---
+- hosts: all
+  sudo: false
+  vars_files:
+    - vars/common.yml
+    - vars/system.yml
+    - vars/firewall.yml
+    - vars/apache.yml
+    - vars/mysql.yml
+    - vars/php.yml
+    - vars/git.yml
+    - vars/drush.yml
+  roles:
+    - init
+    - firewall
+    - apache
+    - php
+    - mysql
+    - git
+    - composer
+    - drush
+    - ruby
+    - nodejs
+    - sass
+    - grunt
+    - bower
+    - yeoman
+    - qatools
+    - samba

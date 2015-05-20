@@ -1,0 +1,83 @@
+---
+mysql_user_home: /root
+mysql_root_username: root
+mysql_root_password: root
+
+mysql_enabled_on_startup: yes
+
+# Pass in a comma-separated list of repos to use (e.g. "remi,epel"). Used only
+# for RedHat systems (and derivatives).
+mysql_enablerepo: ""
+
+# Define a custom list of packages to install; if none provided, the default
+# package list from vars/[OS-family].yml will be used.
+# mysql_packages:
+#   - mysql
+#   - mysql-server
+#   - MySQL-python
+
+# MySQL connection settings.
+mysql_port: "3306"
+mysql_datadir: /var/lib/mysql
+
+# Memory settings (default values optimized ~512MB RAM).
+mysql_character_set_server: 'utf8'
+mysql_collation_server: 'utf8_general_ci'
+mysql_max_connections: 1001
+mysql_thread_cache_size: 1024
+mysql_read_rnd_buffer_size: 256K
+mysql_tmp_table_size: 32M
+mysql_max_heap_table_size: 32M 
+mysql_query_cache_type: 1
+mysql_log_output: FILE
+mysql_slow_query_log_file: /var/log/mysql/innodb_slow1.log
+mysql_slow_query_log: 1
+mysql_long_query_time: 2
+mysql_key_buffer_size: 256M
+mysql_max_allowed_packet: 32M
+mysql_table_open_cache: 1024
+mysql_sort_buffer_size: 256K
+mysql_read_buffer_size: 256K
+mysql_read_rnd_buffer_size: 256K
+mysql_myisam_sort_buffer_size: 64M
+mysql_query_cache_size: 128M
+mysql_sync_binlog: 0
+
+
+# Other settings.
+mysql_wait_timeout: 28800
+
+# InnoDB settings.
+mysql_innodb_buffer_pool_instances: 2
+mysql_innodb_data_file_path: ibdata1:1000M:autoextend
+mysql_innodb_support_xa: 1
+mysql_innodb_flush_method: O_DIRECT
+mysql_innodb_log_files_in_group: 2
+mysql_innodb_file_per_table: 1
+mysql_innodb_buffer_pool_size: 512M
+mysql_innodb_additional_mem_pool_size: 8M
+mysql_innodb_log_file_size: 64M
+mysql_innodb_log_buffer_size: 8M
+mysql_innodb_flush_log_at_trx_commit: 1
+mysql_innodb_lock_wait_timeout: 50
+mysql_innodb_thread_concurrency: 8
+
+# mysqldump settings.
+mysql_mysqldump_max_allowed_packet: "64M"
+
+# Logging settings.
+mysql_log_error: /var/log/mysqld.log
+mysql_syslog_tag: mysqld
+
+# Databases.
+mysql_databases: []
+# Full example:
+# mysql_databases:
+#   - { name: example, collation: utf8_general_ci, encoding: utf8, replicate: 1 }
+
+# Users
+mysql_users: []
+# Full Example:
+# mysql_users:
+#   - { name: example, host: 127.0.0.1, password: secret, priv: *.*:USAGE }
+

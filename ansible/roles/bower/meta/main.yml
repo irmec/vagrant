@@ -1,0 +1,21 @@
+---
+
+dependencies:
+  - { role: init }
+  - { role: nodejs }
+
+galaxy_info:
+
+  author:              Travis
+  description:         Bower role for PHP Team
+  company:             BTI
+  license:             MIT
+  min_ansible_version: 1.7.0
+  platforms:
+    - name: EL
+  versions:
+    - 6
+    - 7
+  categories:
+    - development
+    - web
