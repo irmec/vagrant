@@ -32,9 +32,9 @@ Vagrant.configure("2") do |config|
         v.customize [
             "modifyvm", :id,
             "--name", "local_dev_environment",
-            "--memory", 1024,
+            "--memory", 512,
             "--natdnshostresolver1", "on",
-            "--cpus", 2,
+            "--cpus", 1,
         ]
     end
 
@@ -71,12 +71,12 @@ Vagrant.configure("2") do |config|
 	#config.vm.synced_folder other_configs['host_doc_root'], "/var/www/html", type: "nfs"
 
     #Port forwarding for HTTP
-    config.vm.network "forwarded_port", guest: 80, host: 8080, auto_correct: true
+    config.vm.network "forwarded_port", guest: 80, host: 80000, auto_correct: true
 
     # Port forwarding for SSH (disabled by default - use vagrant reload)
-    config.vm.network "forwarded_port", guest: 22, host: 2200, auto_correct: true
+    config.vm.network "forwarded_port", guest: 22, host: 22000, auto_correct: true
 
     # Port forwarding for MySQL (disabled by default - use vagrant reload)
-    config.vm.network "forwarded_port", guest: 3306, host: 3300, auto_correct: true
+    config.vm.network "forwarded_port", guest: 3306, host: 33000, auto_correct: true
 
 end
