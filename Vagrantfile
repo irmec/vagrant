@@ -71,7 +71,7 @@ Vagrant.configure("2") do |config|
 	#config.vm.synced_folder other_configs['host_doc_root'], "/var/www/html", type: "nfs"
 
     #Port forwarding for HTTP
-    config.vm.network "forwarded_port", guest: 80, host: 80000, auto_correct: true
+    config.vm.network "forwarded_port", guest: 80, host: 8000, auto_correct: true
 
     # Port forwarding for SSH (disabled by default - use vagrant reload)
     config.vm.network "forwarded_port", guest: 22, host: 22000, auto_correct: true
