@@ -7,5 +7,5 @@
 
     #Virtualhosts for your webserver. You can put multiple vhosts and aliases. Note that the documentroot should exist on host_doc_root
     apache_vhosts:
-      - servername: "dev.irmec.com"
-        documentroot: "git-projects/irmec-website"
+      - servername: "irmevangelicalchurch.dev"
+        documentroot: "irmec-website"

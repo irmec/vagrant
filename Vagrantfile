@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
     end
 
     config.vm.box = "dev/centos65-x64-ansible"
-    config.vm.box_url = "http://104.236.100.209/centos65-x64-ansible.box"
+    config.vm.box_url = "centos65-x64-ansible.box"
     config.vm.network :private_network, ip: "192.168.56.99"
     config.ssh.forward_agent = true
 
@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
 
     
     config.vm.synced_folder "./", "/vagrant", type: "nfs"
-	
+    config.vm.synced_folder "./irmec-website", "/var/www/html/irmec-website", type: "nfs"	
 	# Uncomment the line below if you don't want to use Samba for file sharing and use default virtualbox share (or NFS if supported by your OS). Make sure the value of host_doc_root on common.yml is updated to the correct path on host machine.
 	#config.vm.synced_folder other_configs['host_doc_root'], "/var/www/html", type: "nfs"
 

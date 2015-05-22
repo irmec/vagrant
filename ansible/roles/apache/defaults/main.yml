@@ -9,7 +9,7 @@ apache_vhosts_filename: "vhosts.conf"
 
 apache_vhosts:
   # Additional properties: 'serveradmin, serveralias, extra_parameters'.
-  - {servername: "local.dev", documentroot: "/var/www/html"}
+  - {servername: "irmevangelicalchurch.dev", documentroot: "/vagrant/irmec-website"}
 
 apache_vhosts_ssl: []
   # Additional properties: 'serveradmin, extra_parameters'.
