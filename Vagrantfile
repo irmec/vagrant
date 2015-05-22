@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
     end
 
     config.vm.box = "dev/centos65-x64-ansible"
-    config.vm.box_url = "centos65-x64-ansible.box"
+    config.vm.box_url = "http://104.236.100.209/centos65-x64-ansible.box"
     config.vm.network :private_network, ip: "192.168.56.99"
     config.ssh.forward_agent = true
 
