@@ -1,0 +1,3 @@
+[submodule "irmec-website"]
+	path = irmec-website
+	url = git@github.com:irmec/irmec-website.git
