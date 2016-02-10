@@ -74,9 +74,9 @@ Vagrant.configure("2") do |config|
     config.vm.network "forwarded_port", guest: 80, host: 8000, auto_correct: true
 
     # Port forwarding for SSH (disabled by default - use vagrant reload)
-    config.vm.network "forwarded_port", guest: 22, host: 22000, auto_correct: true
+    #config.vm.network "forwarded_port", guest: 22, host: 22000, auto_correct: true
 
     # Port forwarding for MySQL (disabled by default - use vagrant reload)
-    config.vm.network "forwarded_port", guest: 3306, host: 33000, auto_correct: true
+    #config.vm.network "forwarded_port", guest: 3306, host: 33000, auto_correct: true
 
 end
